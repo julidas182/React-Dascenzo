@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
     const [count, setCount] = useState(initial)
 
-    useEffect(() => {}, [])
+   
     
     
     const subtract = () => {
