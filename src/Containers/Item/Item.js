@@ -1,9 +1,17 @@
+import { Button } from '@mui/material'
 import React from 'react'
 
-const Item = ({ productos }) => {
+
+
+
+
+const Item = ({ product}) => {
   return (
     <div>
-        <h1>{productos.precio}</h1>
+        {<src>{product.img}</src>}
+        {<h2>{product.nombre}</h2>}
+        {<Button>Ver detalles</Button>}
+
 
     </div>
   )

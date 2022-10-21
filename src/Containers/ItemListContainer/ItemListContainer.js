@@ -118,20 +118,26 @@ const obtenerProductos = new Promise ((resolve, reject)=> {
 
 const ItemListContainer = ({greeting}) => {
   const [productsList, setProductsList] = useState([]);
-  //const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     obtenerProductos
     .then((data)=> {
-      setProductsList(data);
+      
+      setProductsList(data)
     })
     .catch((error)=>{
       console.log('salio todo mal');
       
     })
+    .finally(()=>
+      setLoading(false)
+    )
 
  
   }, []);
+
+  
 
 
   const onAdd = (count) => {
@@ -140,15 +146,15 @@ const ItemListContainer = ({greeting}) => {
   return (
     <>
     <h1>{greeting}</h1>
-    {
+    {/* {
       productsList.map((producto)=> {
-        return <h2 key={producto.id}>{producto.nombre}</h2>
+        return <h2 key={producto.id}>{productos.nombre}</h2>
         
         
       })
-    }
+    } */}
     
-    {/* {<>{loading ? <h1>Cargando...</h1> : <ItemList products={products} />}</>} */}
+    {<>{loading ? <h1>Cargando...</h1> : <ItemList products={productsList} />}</>}
     <ItemCount stock={5} initial={1} onAdd={onAdd}/> 
     </>
   )
